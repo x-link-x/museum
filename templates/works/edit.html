@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="/works/{{ work.id }}" method="post">
+    <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{work.title}}">
+    </div>
+    <div>
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" name="artist" value="{{work.artist}}">
+    </div>
+    <div>
+        <label for="year">Year:</label>
+        <input type="text" id="year" name="year" value="{{work.year}}">
+    </div>
+    <div>
+        <label for="museum">Museum:</label>
+        <select name="museum_id" id="museum">
+            {% for museum in museums %}
+                <option value="{{ museum.id }}">
+                    {{ museum.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+
+  <button type="submit">Update</button>
+
+
+</form>
+    
+{% endblock content %}

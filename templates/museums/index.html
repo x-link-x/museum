@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+ <div id="museum-boxes-container">
+  {% for museum in museums %}
+    <div id=museum-container>
+      <div>
+        <a href="/museums/{{museum.id}}">{{museum.name}}</a>
+        <address>
+          {{museum.address}}
+        </address>
+      </div>
+      <p><form action="/museums/{{ museum.id }}/delete" method="POST"><button>Delete</button></form></p>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}
